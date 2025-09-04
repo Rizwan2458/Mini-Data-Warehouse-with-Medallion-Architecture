@@ -42,43 +42,6 @@ It covers raw data ingestion, data cleaning and transformation, dimensional mode
 
 ---
 
-# Project Structure
-
-├── bronze/
-│ ├── load_customers.sql
-│ ├── load_products.sql
-│ └── load_sales.sql
-│
-├── silver/
-│ ├── transform_customers.sql
-│ ├── transform_products.sql
-│ └── transform_sales.sql
-│
-├── gold/
-│ ├── dim_customers.sql
-│ ├── dim_products.sql
-│ └── fact_sales.sql
-│
-├── quality_checks/
-│ ├── bronze_quality_checks.sql
-│ ├── silver_quality_checks.sql
-│ └── gold_quality_checks.sql
-│
-├── procedures/
-│ ├── sp_load_bronze.sql
-│ ├── sp_transform_silver.sql
-│ └── sp_load_gold.sql
-│
-├── data/
-│ ├── cust_info.csv
-│ ├── prod_info.csv
-│ └── sales_info.csv
-│
-├── README.md
-└── LICENSE
-
----
-
 ## How to Run
 
 1. Set up PostgreSQL and create a database (`datawarehouse`).

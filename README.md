@@ -41,3 +41,55 @@ It covers raw data ingestion, data cleaning and transformation, dimensional mode
 - SQL – ETL, data modeling, quality checks.
 
 ---
+
+# Project Structure
+
+├── bronze/
+│ ├── load_customers.sql
+│ ├── load_products.sql
+│ └── load_sales.sql
+│
+├── silver/
+│ ├── transform_customers.sql
+│ ├── transform_products.sql
+│ └── transform_sales.sql
+│
+├── gold/
+│ ├── dim_customers.sql
+│ ├── dim_products.sql
+│ └── fact_sales.sql
+│
+├── quality_checks/
+│ ├── bronze_quality_checks.sql
+│ ├── silver_quality_checks.sql
+│ └── gold_quality_checks.sql
+│
+├── procedures/
+│ ├── sp_load_bronze.sql
+│ ├── sp_transform_silver.sql
+│ └── sp_load_gold.sql
+│
+├── data/
+│ ├── cust_info.csv
+│ ├── prod_info.csv
+│ └── sales_info.csv
+│
+├── README.md
+└── LICENSE
+
+---
+
+## How to Run
+
+1. Set up PostgreSQL and create a database (`datawarehouse`).
+2. Create Schemas:
+   ```sql
+   CREATE SCHEMA bronze;
+   CREATE SCHEMA silver;
+   CREATE SCHEMA gold;
+3. Load Raw Data into the Bronze Layer (using COPY or \copy in psql).
+4. Run Silver Layer Procedure:
+   ```sql
+   CALL silver.load_silver();
+5. Create Gold Layer Views for facts and dimensions.
+6. Run Quality Checks scripts to validate data integrity.
